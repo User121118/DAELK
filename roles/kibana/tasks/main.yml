@@ -2,6 +2,8 @@
   docker_container:
     name: "{{ kibana_hostname }}"
     image: "{{ kibana_image }}"
+    published_ports: [all]
+
     env:
       servername: "kibana"
       ELASTICSEARCH_HOSTS: "http://{{ elasticsearch_hostname }}:9200"
