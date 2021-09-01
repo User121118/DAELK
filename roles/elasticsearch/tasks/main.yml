@@ -29,10 +29,10 @@
       max-size: "{{ log_max_size }}"
       max-file: "{{ log_max_file }}"
 
-- name: Start elastic search container (Data1)
+- name: Start elastic search container (Data2)
   docker_container:
     name: "es02"
-    image: "{{ elasticsearch_image }}
+    image: "{{ elasticsearch_image }}"
 
     env:
       cluster_name: "my-cluster"
@@ -44,7 +44,7 @@
       xpack.monitoring.collection.enabled: "true"
 
     volumes:
-    - "esdata01:/usr/share/elasticsearch/data"
+    - "esdata02:/usr/share/elasticsearch/data"
     ulimits:
     - nofile:65535:65535
     networks:
@@ -55,9 +55,9 @@
       max-size: "{{ log_max_size }}"
       max-file: "{{ log_max_file }}"
 
-- name: Start elastic search container (Data2)
+- name: Start elastic search container (Data3)
   docker_container:
-    name: "es02"
+    name: "es03"
     image: "{{ elasticsearch_image }}"
 
     env:
