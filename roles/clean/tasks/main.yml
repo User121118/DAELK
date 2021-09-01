@@ -1,0 +1,29 @@
+---
+- name: Remove elastic search container
+  docker_container:
+    name: "{{ elasticsearch_hostname }}"
+    state: absent
+  tags:
+  - elasticsearch
+
+- name: Clean elastic search conf dir
+  file:
+    state: absent
+    path: "{{ elasticsearch_conf_dir }}"
+  tags:
+  - elasticsearch
+
+- name: Remove kibana container
+  docker_container:
+    name: "{{ kibana_hostname }}"
+    state: absent
+  tags:
+  - kibana
+
+
+- name: Remove docker network
+  docker_network:
+    name: "{{ network_name }}"
+    state: absent
+  tags:
+  - docker

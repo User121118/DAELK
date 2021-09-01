@@ -1,0 +1,13 @@
+elasticsearch_image: docker.elastic.co/elasticsearch/elasticsearch:7.4.2
+elasticsearch_hostname: es01
+elasticsearch_conf_dir: /usr/share/elasticsearch
+
+kibana_image: docker.elastic.co/kibana/kibana:7.4.2
+kibana_hostname: ki01
+
+log_driver: "json-file"
+log_max_size: "10m"
+log_max_file: "3"
+
+elastic_password: "111111"
+kibana_password: "111111"
