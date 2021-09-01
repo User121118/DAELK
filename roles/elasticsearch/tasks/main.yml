@@ -32,12 +32,7 @@
 - name: Start elastic search container (Data1)
   docker_container:
     name: "es02"
-    image: "{{ elasticsearch_image }}"
-    cluster_name: "my-cluster"
-    discovery.seed_hosts: "es01,es03"
-    cluster.initial_master_nodes: "es01"
-    bootstrap.memory_lock: "true"
-
+    image: "{{ elasticsearch_image }}
 
     env:
       cluster_name: "my-cluster"
