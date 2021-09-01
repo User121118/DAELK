@@ -3,7 +3,7 @@
     name: "{{ kibana_hostname }}"
     image: "{{ kibana_image }}"
     env:
-      servername: "{{ server_name }}"
+      servername: "kibana"
       ELASTICSEARCH_HOSTS: "http://{{ elasticsearch_hostname }}:9200"
       ELASTICSEARCH_USERNAME: "kibana"
       ELASTICSEARCH_PASSWORD: "{{ kibana_password }}"
