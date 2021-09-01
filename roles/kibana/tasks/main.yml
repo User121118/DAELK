@@ -2,13 +2,13 @@
   docker_container:
     name: "{{ kibana_hostname }}"
     image: "{{ kibana_image }}"
-    published_ports: [30080:5601]
+    published_ports: ["30080:5601"]
 
     env:
       servername: "kibana"
       ELASTICSEARCH_HOSTS: "http://{{ elasticsearch_hostname }}:9200"
-      ELASTICSEARCH_USERNAME: "kibana"
-      ELASTICSEARCH_PASSWORD: "{{ kibana_password }}"
+      ELASTICSEARCH_USERNAME: "kibana_system"
+      ELASTICSEARCH_PASSWORD: "1qaz2wsx"
     networks:
     - name: "{{ network_name }}"
     log_driver: "{{ log_driver }}"
