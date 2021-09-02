@@ -24,3 +24,4 @@
       max-size: "{{ log_max_size }}"
       max-file: "{{ log_max_file }}"
 
+#total
