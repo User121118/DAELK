@@ -2,7 +2,7 @@
   docker_container:
     name: "{{ kibana_hostname }}"
     image: "{{ kibana_image }}"
-    published_ports: [30080:5601]
+    published_ports: ["30080:5601"]
 
     env:
       servername: "kibana"
