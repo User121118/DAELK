@@ -1,7 +1,35 @@
 ---
-- name: Remove elastic search container
+- name: Remove elastic search container1
   docker_container:
-    name: "{{ elasticsearch_hostname }}"
+    name: "es01"
+    state: absent
+  tags:
+  - elasticsearch
+
+- name: Clean elastic search conf dir1
+  file:
+    state: absent
+    path: "{{ elasticsearch_conf_dir }}"
+  tags:
+  - elasticsearch
+
+- name: Remove elastic search container2
+  docker_container:
+    name: "es02"
+    state: absent
+  tags:
+  - elasticsearch
+
+- name: Clean elastic search conf dir2
+  file:
+    state: absent
+    path: "{{ elasticsearch_conf_dir }}"
+  tags:
+  - elasticsearch
+
+- name: Remove elastic search container3
+  docker_container:
+    name: "es03"
     state: absent
   tags:
   - elasticsearch
