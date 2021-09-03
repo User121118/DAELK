@@ -47,8 +47,8 @@
       discovery.seed_hosts: "es01,es03"
       cluster.initial_master_nodes: "es01"
       ES_JAVA_OPTS: "-Xms512m -Xmx512m"
-      xpack.security.enabled: "true"
-      xpack.monitoring.collection.enabled: "true"
+      xpack.security.enabled: "false"
+      xpack.monitoring.collection.enabled: "false"
   
 
     volumes:
@@ -73,8 +73,8 @@
       discovery.seed_hosts: "es01,es02"
       cluster.initial_master_nodes: "es01"
       ES_JAVA_OPTS: "-Xms512m -Xmx512m"
-      xpack.security.enabled: "true"
-      xpack.monitoring.collection.enabled: "true"
+      xpack.security.enabled: "false"
+      xpack.monitoring.collection.enabled: "false"
   
 
     volumes:
