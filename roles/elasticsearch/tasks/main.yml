@@ -9,13 +9,13 @@
     image: "{{ elasticsearch_image }}"
 
     env:
+      bootstrap.memory_lock: "true"
       cluster_name: "my-cluster"
       discovery.seed_hosts: "es02,es03"
       cluster.initial_master_nodes: "es01"
-      bootstrap.memory_lock: "true"
       ES_JAVA_OPTS: "-Xms512m -Xmx512m"
-      xpack.security.enabled: "true"
-      xpack.monitoring.collection.enabled: "true"
+      xpack.security.enabled: "false"
+      xpack.monitoring.collection.enabled: "false"
 
     volumes:
     - "esdata:/usr/share/elasticsearch/data"
@@ -37,32 +37,6 @@
     env:
       cluster_name: "my-cluster"
       discovery.seed_hosts: "es01,es03"
-      cluster.initial_master_nodes: "es01"
-      bootstrap.memory_lock: "true"
-      ES_JAVA_OPTS: "-Xms512m -Xmx512m"
-      xpack.security.enabled: "true"
-      xpack.monitoring.collection.enabled: "true"
-
-    volumes:
-    - "esdata02:/usr/share/elasticsearch/data"
-    ulimits:
-    - nofile:65535:65535
-    networks:
-    - name: "{{ network_name }}"
-    state: started
-    log_driver: "{{ log_driver }}"
-    log_options:
-      max-size: "{{ log_max_size }}"
-      max-file: "{{ log_max_file }}"
-
-- name: Start elastic search container (Data3)
-  docker_container:
-    name: "es03"
-    image: "{{ elasticsearch_image }}"
-
-    env:
-      cluster_name: "my-cluster"
-      discovery.seed_hosts: "es01,es02"
       cluster.initial_master_nodes: "es01"
       bootstrap.memory_lock: "true"
       ES_JAVA_OPTS: "-Xms512m -Xmx512m"
