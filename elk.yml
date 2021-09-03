@@ -4,3 +4,4 @@
   - { role: docker, tags: ["docker"] }
   - { role: elasticsearch, tags: ["elasticsearch"] }
   - { role: kibana, tags: ["kibana"] }
+  - { role: fluent_bit, tags: ["fluent_bit"] }
