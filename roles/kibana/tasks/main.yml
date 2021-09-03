@@ -6,9 +6,15 @@
 
     env:
       servername: "kibana"
-      ELASTICSEARCH_HOSTS: "http://{{ elasticsearch_hostname }}:9200"
+      ELASTICSEARCH_HOSTS: "https://{{ elasticsearch_hostname }}:9200"
       ELASTICSEARCH_USERNAME: "kibana_system"
       ELASTICSEARCH_PASSWORD: "1qaz2wsx"
+      ELASTICSEARCH_SSL_CERTIFICATEAUTHORITIES: "/usr/share/elasticsearch/config/certificates/ca/ca.crt"
+      SERVER_SSL_ENABLED: "true"
+      SERVER_SSL_KEY: "/usr/share/elasticsearch/config/certificates/ki01/ki01.key"
+      SERVER_SSL_CERTIFICATE: "/usr/share/elasticsearch/config/certificates/ki01/ki01.crt"
+    volumes:
+      - "certs:/usr/share/elasticsearch/config/certificates/""
     networks:
     - name: "{{ network_name }}"
     log_driver: "{{ log_driver }}"
