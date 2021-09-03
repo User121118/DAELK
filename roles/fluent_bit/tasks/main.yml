@@ -3,7 +3,10 @@
     name: "fb01"
     image: "fluent/fluent-bit"
 
-
+    ports:
+      - "24224:24224"
+      - "24224:24224/udp"
+    
     volumes:
       - "certs:/usr/share/elasticsearch/config/certificates/"
       - "/opt/git/DAELK/fluent-bit.conf:/fluent-bit/etc/fluent-bit.conf"
