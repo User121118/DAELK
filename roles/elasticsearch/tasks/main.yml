@@ -11,14 +11,13 @@
   docker_volume:
     name: esdata03
     driver: local
-    
+
 - name: Start elastic search container (Master)
   docker_container:
     name: "es01"
     image: "{{ elasticsearch_image }}"
 
     env:
-      bootstrap.memory_lock: "true"
       cluster_name: "my-cluster"
       discovery.seed_hosts: "es02,es03"
       cluster.initial_master_nodes: "es01"
@@ -47,7 +46,6 @@
       cluster_name: "my-cluster"
       discovery.seed_hosts: "es01,es03"
       cluster.initial_master_nodes: "es01"
-      bootstrap.memory_lock: "true"
       ES_JAVA_OPTS: "-Xms512m -Xmx512m"
       xpack.security.enabled: "true"
       xpack.monitoring.collection.enabled: "true"
