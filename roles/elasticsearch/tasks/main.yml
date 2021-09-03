@@ -1,8 +1,17 @@
-- name: Create elastic search volume
+- name: Create elastic search volume1
   docker_volume:
     name: esdata
     driver: local
+- name: Create elastic search volume2
+  docker_volume:
+    name: esdata02
+    driver: local
 
+- name: Create elastic search volume3
+  docker_volume:
+    name: esdata03
+    driver: local
+    
 - name: Start elastic search container (Master)
   docker_container:
     name: "es01"
