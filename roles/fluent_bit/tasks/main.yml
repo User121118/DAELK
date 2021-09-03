@@ -16,6 +16,4 @@
     - name: "{{ network_name }}"
     log_driver: "fluentd"
     log_options:
-      max-size: "{{ log_max_size }}"
-      max-file: "{{ log_max_file }}"
       tag: "fluent"
