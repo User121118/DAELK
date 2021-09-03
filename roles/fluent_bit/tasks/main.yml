@@ -6,6 +6,11 @@
     ports:
       - "24224:24224"
       - "24224:24224/udp"
+
+    logging:
+      driver: "fluentd"
+      options:
+        tag: "fluent"
     
     volumes:
       - "certs:/usr/share/elasticsearch/config/certificates/"
