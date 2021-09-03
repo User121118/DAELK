@@ -1,4 +1,4 @@
-- name: Start kibana container
+- name: Start fluent bit container
   docker_container:
     name: "fb01"
     image: "fluent/fluent-bit"
