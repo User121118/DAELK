@@ -1,0 +1,15 @@
+- name: Start kibana container
+  docker_container:
+    name: "fb01"
+    image: "fluent/fluent-bit"
+
+
+    volumes:
+      - "certs:/usr/share/elasticsearch/config/certificates/"
+      - "./fluent-bit/fluent-bit.conf:/fluent-bit/etc/fluent-bit.conf"
+    networks:
+    - name: "{{ network_name }}"
+    log_driver: "{{ log_driver }}"
+    log_options:
+      max-size: "{{ log_max_size }}"
+      max-file: "{{ log_max_file }}"
