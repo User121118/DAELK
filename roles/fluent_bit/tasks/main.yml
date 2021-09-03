@@ -7,17 +7,15 @@
       - "24224:24224"
       - "24224:24224/udp"
 
-    logging:
-      driver: "fluentd"
-      options:
-        tag: "fluent"
+    
     
     volumes:
       - "certs:/usr/share/elasticsearch/config/certificates/"
       - "/opt/git/DAELK/fluent-bit.conf:/fluent-bit/etc/fluent-bit.conf"
     networks:
     - name: "{{ network_name }}"
-    log_driver: "{{ log_driver }}"
+    log_driver: "fluentd"
     log_options:
       max-size: "{{ log_max_size }}"
       max-file: "{{ log_max_file }}"
+      tag: "fluent"
