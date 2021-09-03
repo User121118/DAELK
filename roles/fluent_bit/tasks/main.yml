@@ -6,7 +6,7 @@
 
     volumes:
       - "certs:/usr/share/elasticsearch/config/certificates/"
-      - "fluent-bit.conf:/fluent-bit/etc/fluent-bit.conf"
+      - "/opt/git/DAELK/fluent-bit.conf:/fluent-bit/etc/fluent-bit.conf"
     networks:
     - name: "{{ network_name }}"
     log_driver: "{{ log_driver }}"
