@@ -1,7 +1,7 @@
 - name: Start fluent bit container
   docker_container:
     name: "fb01"
-    image: "fluent/fluent-bit"
+    image: "fluent/fluent-bit:1.5.2-debug"
 
     ports:
       - "24224:24224"
