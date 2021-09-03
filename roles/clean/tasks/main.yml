@@ -48,6 +48,14 @@
   tags:
   - kibana
 
+- name: Remove fluent_bit container
+  docker_container:
+    name: "fb01"
+    state: absent
+  tags:
+  - fluent_bit
+
+
 
 - name: Remove docker network
   docker_network:

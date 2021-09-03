@@ -1,0 +1,19 @@
+- name: Start fluent bit container
+  docker_container:
+    name: "fb01"
+    image: "fluent/fluent-bit:1.5.2-debug"
+
+    ports:
+      - "24224:24224"
+      - "24224:24224/udp"
+
+    
+    
+    volumes:
+      - "certs:/usr/share/elasticsearch/config/certificates/"
+      - "/opt/git/DAELK/fluent-bit.conf:/fluent-bit/etc/fluent-bit.conf"
+    networks:
+    - name: "{{ network_name }}"
+    log_driver: "fluentd"
+    log_options:
+      tag: "fluent"
